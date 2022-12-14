@@ -37,8 +37,8 @@ jobs:
       with:
         subscriptionId: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
         resourceGroupName: jseijas_students_1
-        template: ./main.bicep
-        parameters: dev.parameters.json
+        template: ./IaC/main.bicep
+        parameters: ./IaC/dev.parameters.json
         failOnStdErr: false
 
   deploy-prod:
@@ -65,5 +65,5 @@ jobs:
         subscriptionId: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
         resourceGroupName: jseijas_students_1
         template: ./IaC/main.bicep
-        parameters: prod.parameters.json
+        parameters: ./IaC/prod.parameters.json
         failOnStdErr: false
