@@ -18,7 +18,7 @@ param storageAccountName string = 'dsanmartstorage'
 param environmentType string = 'nonprod'
 param location string = resourceGroup().location
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'  
-var appServicePlanSkuName = (environmentType == 'prod') ? 'P2V3' : 'F1'
+var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: storageAccountName
