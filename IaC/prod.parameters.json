@@ -5,8 +5,11 @@
         "environmentType": {
             "value": "prod"
         },
-        "appServiceAppName": {
-            "value": "dsanmart-recipeapp-prod"
+        "appServiceAppNameBe": {
+            "value": "dsanmart-recipeapp-BE-prod"
+        },
+        "appServiceAppNameFe": {
+            "value": "dsanmart-recipeapp-FE-prod"
         },
         "appServicePlanName": {
             "value": "dsanmart-recipeapp-prod"

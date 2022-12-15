@@ -1,7 +1,11 @@
-@sys.description('The Web App name.')
+@sys.description('The FE Web App name.')
 @minLength(3)
 @maxLength(24)
-param appServiceAppName string = 'dsanmart-app-bicep'
+param appServiceAppNameFe string = 'dsanmart-fe-app-bicep'
+@sys.description('The BE Web App name.')
+@minLength(3)
+@maxLength(24)
+param appServiceAppNameBe string = 'dsanmart-be-app-bicep'
 @sys.description('The App Service Plan name.')
 @minLength(3)
 @maxLength(24)
@@ -38,8 +42,16 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
     name: appServicePlanSkuName
   }
 }
-resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: appServiceAppName
+resource appServiceAppFe 'Microsoft.Web/sites@2022-03-01' = {
+  name: appServiceAppNameFe
+  location: location
+  properties: {
+  serverFarmId: appServicePlan.id
+  httpsOnly: true
+  }
+}
+resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
+  name: appServiceAppNameBe
   location: location
   properties: {
   serverFarmId: appServicePlan.id
