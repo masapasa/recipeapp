@@ -53,8 +53,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'dsanmart-recipeapp-dev'
-          slot-name: 'Frontend'
+          app-name: 'dsanmart-recipeapp-FE-dev'
           package: .
 
   deploy-prod:
@@ -80,5 +79,4 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'dsanmart-recipeapp-prod'
-          slot-name: 'Frontend'
           package: .
