@@ -21,12 +21,9 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: acccess the frontend
-        run: |
-          cd frontend
-
       - name: npm install, build, and test
         run: |
+          working-directory: ./frontend
           npm install
           npm run build --if-present
       - name: Upload artifact for deployment job
