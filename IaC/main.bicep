@@ -1,10 +1,10 @@
 @sys.description('The FE Web App name.')
 @minLength(3)
-@maxLength(24)
+@maxLength(30)
 param appServiceAppNameFe string = 'dsanmart-fe-app-bicep'
 @sys.description('The BE Web App name.')
 @minLength(3)
-@maxLength(24)
+@maxLength(30)
 param appServiceAppNameBe string = 'dsanmart-be-app-bicep'
 @sys.description('The App Service Plan name.')
 @minLength(3)
