@@ -5,14 +5,20 @@
         "environmentType": {
             "value": "nonprod"
         },
-        "appServiceAppName": {
-            "value": "dsanmart-recipeapp-dev"
+        "appServiceAppNameBe": {
+            "value": "dsanmart-recipeapp-BE-dev"
+        },
+        "appServiceAppNameFe": {
+            "value": "dsanmart-recipeapp-FE-dev"
         },
         "appServicePlanName": {
             "value": "dsanmart-recipeapp-dev"
         },
         "storageAccountName": {
             "value": "dsanmartdevstorage"
+        },
+        "dbname": {
+            "value": "dsanmart-recipeapp-db-dev"
         }
     }
 }

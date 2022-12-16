@@ -1,6 +1,7 @@
 name: Azure Bicep Infra
 
-on: [push, workflow_dispatch]
+on: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -39,6 +40,7 @@ jobs:
         resourceGroupName: jseijas_students_1
         template: ./IaC/main.bicep
         parameters: ./IaC/dev.parameters.json
+    
         failOnStdErr: false
 
   deploy-prod:
