@@ -14,9 +14,6 @@
         "appServicePlanName": {
             "value": "dsanmart-recipeapp-prod"
         },
-        "storageAccountName": {
-            "value": "dsanmartprodstorage"
-        },
         "dbname": {
             "value": "dsanmart-recipeapp-db-prod"
         }
