@@ -16,6 +16,9 @@
         },
         "storageAccountName": {
             "value": "dsanmartprodstorage"
+        },
+        "dbname": {
+            "value": "dsanmart-recipeapp-db-prod"
         }
     }
 }
