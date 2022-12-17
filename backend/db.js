@@ -7,7 +7,7 @@ const pool = new Pool({  // Create a new instance of the Pool class
     port: process.env.DATABASE_PORT,  // The port of the database
     user: process.env.DATABASE_USER,  // The user of the database
     password: process.env.DATABASE_PASSWORD,  // The password of the database
-    ssl: process.env.DATABASE_SSLMODE,  // The sslmode of the database
+    ssl: true  // The sslmode of the database
 });
 
 module.exports = pool;  // Export the pool

@@ -20,6 +20,23 @@ param environmentType string = 'nonprod'
 param location string = resourceGroup().location
 var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
 
+@sys.description('The PostgreSQL server name.')
+@minLength(3)
+@maxLength(30)
+param postgreServerName string = 'jseijas-dbsrv'
+@sys.description('The PostgreSQL database name.')
+@minLength(3)
+@maxLength(30)
+param dbname string = 'dsanmart-db'
+@secure()
+param dbhost string
+@secure()
+param dbuser string
+@secure()
+param dbpass string
+@secure()
+param dbport string
+
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
@@ -36,25 +53,41 @@ resource appServiceAppFe 'Microsoft.Web/sites@2022-03-01' = {
   httpsOnly: true
   }
 }
+
 resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
   name: appServiceAppNameBe
   location: location
   properties: {
-  serverFarmId: appServicePlan.id
-  httpsOnly: true
+    serverFarmId: appServicePlan.id
+    httpsOnly: true
+    siteConfig: {
+      appSettings: [
+        {
+          name: 'DBHOST'
+          value: dbhost
+        }
+        {
+          name: 'DBUSER'
+          value: dbuser
+        }
+        {
+          name: 'DBPASS'
+          value: dbpass
+        }
+        {
+          name: 'DBNAME'
+          value: dbname
+        }
+        {
+          name: 'DBPORT'
+          value: dbport
+        }
+      ]
+    }
   }
 }
 
 // IaC for PostgreSQL
-@sys.description('The PostgreSQL server name.')
-@minLength(3)
-@maxLength(30)
-param postgreServerName string = 'jseijas-dbsrv'
-@sys.description('The PostgreSQL database name.')
-@minLength(3)
-@maxLength(30)
-param dbname string = 'dsanmart-db'
-
 resource postgreServer 'Microsoft.DBforPostgreSQL/servers@2017-12-01' existing = {
   name: postgreServerName
 }
