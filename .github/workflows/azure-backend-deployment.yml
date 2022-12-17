@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-be
-          path: ./backend/build/node-be
+          path: ./backend
 
   deploy-dev:
     if: github.ref == 'refs/heads/dev'
