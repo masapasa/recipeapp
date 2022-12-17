@@ -13,7 +13,7 @@ const UserContext = ({children}) => {
 
     // Function below runs when component mounts which will be when the page is refreshed
     useEffect(() => {
-        fetch("http://localhost:4000/auth/login", { // fetch the login route
+        fetch("https://dsanmart-recipeapp-be-dev.azurewebsites.net/auth/login", { // fetch the login route
             credentials: "include", // include cookies
             }).catch(err => {
                 setUser({ loggedIn: false }); // if error, set loggedIn to false
