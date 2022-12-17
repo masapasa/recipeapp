@@ -25,6 +25,7 @@ const SignUp = () => {
             actions.resetForm(); // reset the form
             fetch('https://dsanmart-recipeapp-be-dev.azurewebsites.net/auth/signup', {
                 method: 'POST',
+                mode: 'cors',
                 credentials: 'include',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(vals) // post vals as a JSON string
