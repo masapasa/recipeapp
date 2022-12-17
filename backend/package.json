@@ -13,7 +13,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "npx nodemon index.js",
+    "start": "node index.js",
+    "dev": "npx nodemon index.js",
     "webpack-build": "npx webpack --mode production"
   },
   "devDependencies": {
