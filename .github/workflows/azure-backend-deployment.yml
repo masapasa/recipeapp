@@ -64,8 +64,9 @@ jobs:
           app-name: 'dsanmart-recipeapp-BE-dev'
           package: .
       
-      - name: 'Run the app'
+      - name: 'Install & Run the app'
         run: |
+          npm install --prefix ./backend
           npm start --prefix ./backend
 
   deploy-prod:
