@@ -9,7 +9,7 @@
             "value": "dsanmart-recipeapp2-BE-dev"
         },
         "appServiceAppNameFe": {
-            "value": "dsanmart-recipeapp-FE-dev"
+            "value": "dsanmart-recipeapp2-FE-dev"
         },
         "appServicePlanName": {
             "value": "dsanmart-recipeapp2-dev"
