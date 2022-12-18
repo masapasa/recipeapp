@@ -61,7 +61,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'dsanmart-recipeapp-BE-dev'
+          app-name: 'dsanmart-recipeapp2-BE-dev'
           package: .
 
 
@@ -87,5 +87,5 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'dsanmart-recipeapp-BE-prod'
+          app-name: 'dsanmart-recipeapp2-BE-prod'
           package: .
