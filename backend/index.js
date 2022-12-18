@@ -8,6 +8,8 @@ const session = require('express-session');
 const server = require('http').createServer(app);
 require("dotenv").config();  // Import the dotenv package to access the .env file
 
+const port = process.env.PORT || 3001;
+
 const io = new Server(server, {
     cors: {
         origin: 'https://dsanmart-recipeapp-fe-dev.azurewebsites.net', // <-- location of the react app were connecting to
@@ -40,6 +42,6 @@ app.use('/auth', authRouter);
 
 io.on('connection', (socket) => {}); // <-- socket.io connection
 
-server.listen(80, () => {
+server.listen(port, () => {
     console.log('https://dsanmart-recipeapp-fe-dev.azurewebsites.net');
 });
