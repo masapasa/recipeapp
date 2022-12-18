@@ -61,7 +61,7 @@ resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
     serverFarmId: appServicePlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'node|14'
+      linuxFxVersion: 'node|14-lts'
       appSettings: [
         {
           name: 'DBHOST'
