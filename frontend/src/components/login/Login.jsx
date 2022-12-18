@@ -24,7 +24,7 @@ const Login = () => {
         onSubmit: (values, actions) => {
             const vals = {...values} // copy the values
             actions.resetForm(); // reset the form
-            fetch('https://dsanmart-recipeapp2-be-prod.azurewebsites.net/auth/login', { // post the values to the login route
+            fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/auth/login', { // post the values to the login route
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'include', // include the cookies
