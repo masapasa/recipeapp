@@ -39,11 +39,7 @@ jobs:
         subscriptionId: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
         resourceGroupName: jseijas_students_1
         template: ./IaC/main.bicep
-<<<<<<< HEAD
-        parameters: ./IaC/dev.parameters.json
-=======
         parameters: ./IaC/dev.parameters.json dbuser=${{ secrets.DBUSER }} dbhost=${{ secrets.DBHOST }} dbpass=${{ secrets.DBPASS }} dbport=${{ secrets.DBPORT }} cookieSecret=${{ secrets.COOKIE_SECRET }}
->>>>>>> dev
     
         failOnStdErr: false
 
@@ -71,9 +67,5 @@ jobs:
         subscriptionId: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
         resourceGroupName: jseijas_students_1
         template: ./IaC/main.bicep
-<<<<<<< HEAD
-        parameters: ./IaC/prod.parameters.json
-=======
         parameters: ./IaC/prod.parameters.json dbuser=${{ secrets.DBUSER }} dbhost=${{ secrets.DBHOST }} dbpass=${{ secrets.DBPASS }} dbport=${{ secrets.DBPORT }} cookieSecret=${{ secrets.COOKIE_SECRET }}
->>>>>>> dev
         failOnStdErr: false
