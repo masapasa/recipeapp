@@ -8,7 +8,7 @@ const session = require('express-session');
 const server = require('http').createServer(app);
 require("dotenv").config();  // Import the dotenv package to access the .env file
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 const io = new Server(server, {
     cors: {

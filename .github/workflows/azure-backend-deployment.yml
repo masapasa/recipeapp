@@ -26,16 +26,17 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: '18.x'
+          node-version: '16.x'
 
       - name: npm install, build, and test
         run: |
           npm install --prefix ./backend
           npm run build --if-present --prefix ./backend
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: node-be
+          name: node-app
           path: ./backend
 
   deploy-dev:
@@ -50,7 +51,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: node-be
+          name: node-app
 
       - uses: azure/login@v1
         with:
@@ -62,6 +63,10 @@ jobs:
         with:
           app-name: 'dsanmart-recipeapp-BE-dev'
           package: .
+      
+      - name: 'Run the app'
+        run: |
+          npm start --prefix ./backend
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
@@ -75,7 +80,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: node-be
+          name: node-app
 
       - uses: azure/login@v1
         with:

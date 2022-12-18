@@ -1,6 +1,5 @@
 {
   "name": "backend",
-  "packageManager": "yarn@3.3.0",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
@@ -15,10 +14,6 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "dev": "npx nodemon index.js",
-    "webpack-build": "npx webpack --mode production"
-  },
-  "devDependencies": {
-    "webpack-cli": "^5.0.1"
+    "dev": "npx nodemon index.js"
   }
 }
