@@ -40,6 +40,6 @@ app.use('/auth', authRouter);
 
 io.on('connection', (socket) => {}); // <-- socket.io connection
 
-server.listen(4000, () => {
+server.listen(80, () => {
     console.log('https://dsanmart-recipeapp-fe-dev.azurewebsites.net');
 });
