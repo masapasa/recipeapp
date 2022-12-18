@@ -57,11 +57,13 @@ resource appServiceAppFe 'Microsoft.Web/sites@2022-03-01' = {
 resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
   name: appServiceAppNameBe
   location: location
+  kind: 'functionapp,linux'
   properties: {
+    reserved: true
     serverFarmId: appServicePlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'node|14-lts'
+      linuxFxVersion: 'NODE|14-lts'
       appSettings: [
         {
           name: 'DBHOST'
