@@ -6,16 +6,16 @@
             "value": "prod"
         },
         "appServiceAppNameBe": {
-            "value": "dsanmart-recipeapp2-BE-prod"
+            "value": "dsanmart-recipeapp-BE-prod"
         },
         "appServiceAppNameFe": {
-            "value": "dsanmart-recipeapp2-FE-prod"
+            "value": "dsanmart-recipeapp-FE-prod"
         },
         "appServicePlanName": {
-            "value": "dsanmart-recipeapp2-prod"
+            "value": "dsanmart-recipeapp-prod"
         },
         "dbname": {
-            "value": "dsanmart-recipeapp2-db-prod"
+            "value": "dsanmart-recipeapp-db-prod"
         }
     }
 }
