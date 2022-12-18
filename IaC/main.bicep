@@ -18,7 +18,7 @@ param appServicePlanName string = 'dsanmart-app-bicep'
   ])
 param environmentType string = 'nonprod'
 param location string = resourceGroup().location
-var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
+var appServicePlanSkuName = 'B1'
 
 @sys.description('The PostgreSQL server name.')
 @minLength(3)
