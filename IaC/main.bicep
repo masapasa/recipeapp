@@ -40,7 +40,10 @@ param dbport string
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
-  kind: 'linux'
+  kind: 'app,linux'
+  properties: {
+    reserved: true
+  }
   sku: {
     name: appServicePlanSkuName
   }
@@ -57,13 +60,13 @@ resource appServiceAppFe 'Microsoft.Web/sites@2022-03-01' = {
 resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
   name: appServiceAppNameBe
   location: location
-  kind: 'functionapp,linux'
+  kind: 'app,linux'
   properties: {
     reserved: true
     serverFarmId: appServicePlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'NODE|14-lts'
+      linuxFxVersion: 'node|16-lts'
       appSettings: [
         {
           name: 'DBHOST'
