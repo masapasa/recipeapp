@@ -36,6 +36,8 @@ param dbuser string
 param dbpass string
 @secure()
 param dbport string
+@secure()
+param cookieSecret string
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
@@ -69,24 +71,28 @@ resource appServiceAppBe 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'node|16-lts'
       appSettings: [
         {
-          name: 'DBHOST'
+          name: 'DATABASE_HOST'
           value: dbhost
         }
         {
-          name: 'DBUSER'
+          name: 'DATABASE_USER'
           value: dbuser
         }
         {
-          name: 'DBPASS'
+          name: 'DATABASE_PASSWORD'
           value: dbpass
         }
         {
-          name: 'DBNAME'
+          name: 'DATABASE_NAME'
           value: dbname
         }
         {
-          name: 'DBPORT'
+          name: 'DATABASE_PORT'
           value: dbport
+        }
+        {
+          name: 'COOKIE_SECRET'
+          value: cookieSecret
         }
       ]
     }
