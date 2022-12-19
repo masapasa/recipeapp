@@ -9,17 +9,20 @@ const server = require('http').createServer(app);
 require("dotenv").config();  // Import the dotenv package to access the .env file
 
 const port = process.env.PORT || 3000;
+//const port = 4000;
 
 const io = new Server(server, {
     cors: {
-        origin: 'https://dsanmart-recipeapp2-fe-prod.azurewebsites.net', // <-- location of the react app were connecting to
+        origin: 'https://dsanmart-recipeapp2-fe-dev.azurewebsites.net', // <-- location of the react app were connecting to
+        //origin: 'http://localhost:3000',
         credentials: "true",
     }
 });
 
 app.use(helmet()); // <-- security
 app.use(cors({  // <-- Cross-Origin Resource Sharing (CORS) allows to make requests to the server deployed at a different domain than the one where the backend is hosted on.
-    origin: 'https://dsanmart-recipeapp2-fe-prod.azurewebsites.net',
+    origin: 'https://dsanmart-recipeapp2-fe-dev.azurewebsites.net',
+    //origin: 'http://localhost:3000',
     credentials: true
 }));
 
@@ -39,9 +42,10 @@ app.use(session({ // <-- session middleware
 }));
 
 app.use('/auth', authRouter);
+app.use('/api', require('./routers/recipeRouter'));
 
 io.on('connection', (socket) => {}); // <-- socket.io connection
 
 server.listen(port, () => {
-    console.log('https://dsanmart-recipeapp2-fe-prod.azurewebsites.net');
+    console.log('https://dsanmart-recipeapp2-fe-dev.azurewebsites.net');
 });

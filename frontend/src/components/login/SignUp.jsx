@@ -23,7 +23,8 @@ const SignUp = () => {
         onSubmit: (values, actions) => { // when the form is submitted..
             const vals = {...values} // copy the values
             actions.resetForm(); // reset the form
-            fetch('https://dsanmart-recipeapp2-be-prod.azurewebsites.net/auth/signup', {
+            fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/auth/signup', {
+            //fetch('http://localhost:4000/auth/signup', {
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'include',
