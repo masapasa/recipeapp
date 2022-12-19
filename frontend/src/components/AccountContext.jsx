@@ -13,7 +13,7 @@ const UserContext = ({children}) => {
 
     // Function below runs when component mounts which will be when the page is refreshed
     useEffect(() => {
-        fetch("https://dsanmart-recipeapp2-be-dev.azurewebsites.net/auth/login", { // fetch the login route
+        fetch("https://dsanmart-recipeapp2-be-prod.azurewebsites.net/auth/login", { // fetch the login route
         //fetch("http://localhost:4000/auth/login", {
             mode: "cors", // cors mode
             credentials: "include", // include cookies
