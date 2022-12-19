@@ -2,6 +2,7 @@ import { Text } from '@chakra-ui/layout';
 import { Routes, Route } from 'react-router-dom';
 import Login from './login/Login';
 import SignUp from './login/SignUp';
+import Recipes from './recipes/RecipeList';
 import PrivateRoutes from './PrivateRoutes';
 import { useContext } from 'react';
 import { AccountContext } from './AccountContext';
@@ -19,7 +20,7 @@ const Views = () => {
           <Route path="/update-profile" element={<UpdateProfile />} /> */}
           <Route path="*" element={<Login />} />
           <Route element={<PrivateRoutes />}>
-            <Route path="/home" element={<Text>You are home</Text>} />
+            <Route path="/home" element={<Recipes />} />
           </Route>
         </Routes>
       )

@@ -5,4 +5,21 @@ CREATE TABLE users(
     hashedpass VARCHAR NOT NULL
 );
 
+CREATE TABLE recipes(
+    id SERIAL PRIMARY KEY,
+    recipe_name VARCHAR(28) NOT NULL,
+    ingredients VARCHAR(28) NOT NULL,
+    steps VARCHAR(28) NOT NULL,
+    favorite BOOLEAN NOT NULL,
+    rating INTEGER NOT NULL,
+    user_id SERIAL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE recipes (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL
+);
+
 INSERT INTO users (username, pass, hashedpass) VALUES ($1, $2, $3);
