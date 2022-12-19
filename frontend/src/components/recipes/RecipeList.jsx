@@ -19,7 +19,7 @@ const RecipeList = () => {
     useEffect(() => {
         // fetch the list of recipes from the back-end server or API
         const fetchRecipes = async () => {
-        const response = await fetch('http://localhost:4000/api/recipes', { method: 'GET' });
+        const response = await fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes', { method: 'GET' });
         const data = await response.json();
         console.log('data',data);
         setRecipes(data);
@@ -40,7 +40,7 @@ const handleEditRecipe = (recipe) => {
 const handleDeleteRecipe = async (id) => {
     // delete the recipe from the back-end server or API
     console.log('delid', id);
-    await fetch(`http://localhost:4000/api/recipes/${id}`, { method: 'DELETE' });
+    await fetch(`https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes/${id}`, { method: 'DELETE' });
     // update the list of recipes
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
     setRecipes(updatedRecipes);
@@ -56,7 +56,7 @@ const handleSaveRecipe = async (recipe) => {
     if (recipe.id) {
         // update the recipe on the back-end server or API
         console.log('updating recipe', recipe);
-        const response = await fetch(`'http://localhost:4000/api/recipes/${recipe.id}`, {
+        const response = await fetch(`'https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes/${recipe.id}`, {
             method: 'POST',
             body: JSON.stringify(recipe),
             headers: { 
@@ -69,7 +69,7 @@ const handleSaveRecipe = async (recipe) => {
     } else {
         // create the recipe on the back-end server or API
         console.log('creating recipe', recipe);
-        const response = await fetch('http://localhost:4000/api/recipes', {
+        const response = await fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes', {
             method: 'POST',
             body: JSON.stringify(recipe),
             headers: {'Content-Type': 'application/json'},
