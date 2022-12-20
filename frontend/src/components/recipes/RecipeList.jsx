@@ -11,7 +11,10 @@ import {
     ModalBody,
 } from 'reactstrap';
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> // import font awesome styles
+import { FaStar, FaRegStar } from 'react-icons/fa';
+
+const useberoute = 'https://dsanmart-recipeapp2-be-dev.azurewebsites.net'
+//const useberoute = 'http://localhost:4000'
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -21,7 +24,7 @@ const RecipeList = () => {
     useEffect(() => {
         // fetch the list of recipes from the back-end server or API
         const fetchRecipes = async () => {
-        const response = await fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes', { method: 'GET' });
+        const response = await fetch(useberoute + '/api/recipes', { method: 'GET' });
         const data = await response.json();
         console.log('data',data);
         setRecipes(data);
@@ -42,7 +45,7 @@ const handleEditRecipe = (recipe) => {
 const handleDeleteRecipe = async (id) => {
     // delete the recipe from the back-end server or API
     console.log('delid', id);
-    await fetch(`https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes/${id}`, { method: 'DELETE' });
+    await fetch(useberoute + `/api/recipes/${id}`, { method: 'DELETE' });
     // update the list of recipes
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
     setRecipes(updatedRecipes);
@@ -58,7 +61,7 @@ const handleSaveRecipe = async (recipe) => {
     if (recipe.id) {
         // update the recipe on the back-end server or API
         console.log('updating recipe', recipe);
-        const response = await fetch(`'https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes/${recipe.id}`, {
+        const response = await fetch(useberoute + `/api/recipes/${recipe.id}`, {
             method: 'POST',
             body: JSON.stringify(recipe),
             headers: { 
@@ -71,7 +74,7 @@ const handleSaveRecipe = async (recipe) => {
     } else {
         // create the recipe on the back-end server or API
         console.log('creating recipe', recipe);
-        const response = await fetch('https://dsanmart-recipeapp2-be-dev.azurewebsites.net/api/recipes', {
+        const response = await fetch(useberoute + '/api/recipes', {
             method: 'POST',
             body: JSON.stringify(recipe),
             headers: {'Content-Type': 'application/json'},
@@ -115,8 +118,8 @@ return (
                         <td>{recipe.recipe_name}</td>
                         <td>{recipe.ingredients}</td>
                         <td>{recipe.steps}</td>
-                        <td><i className={recipe.favorite ? 'fa fa-star' : 'fa fa-star-o'}></i></td>
-                        <td>{recipe.favorite}</td>
+                        <td>{recipe.rating}</td>
+                        <td>{recipe.favorite ? <FaStar /> : <FaRegStar />}</td>
                         <td>
             <Button color="primary" onClick={() => handleEditRecipe(recipe)}>Edit</Button>{' '}
             <Button color="danger" onClick={() => handleDeleteRecipe(recipe.id)}>Delete</Button>

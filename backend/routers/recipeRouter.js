@@ -35,15 +35,14 @@ router.get('/recipes/:id', async (req, res) => {
 })
 
 router.post('/recipes/:id', async (req, res) => {
-    const id = req.params.id;
-    const { name, description } = req.body;
+    const { id, recipe_name, ingredients, steps, favorite, rating } = req.body;
     if (id === 'undefined') {
         res.json({ message: 'Recipe not found' });
     } else {
         const updatedRecipe = await pool.query(
-            'UPDATE recipes SET name = $1, description = $2 WHERE id = $3 RETURNING *', [name, description, id]);
+            'UPDATE recipes SET recipe_name = $1, ingredients = $2, steps=$3, favorite=$4, rating=$5 WHERE id = $6 RETURNING *', [recipe_name, ingredients, steps, favorite, rating, id]);
         if (updatedRecipe.rows.length > 0) {
-            res.json(result.rows[0]);
+            res.json(updatedRecipe.rows[0]);
         } else {
             res.json({ message: 'Updating recipe not found' });
         }

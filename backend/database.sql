@@ -7,9 +7,9 @@ CREATE TABLE users(
 
 CREATE TABLE recipes(
     id SERIAL PRIMARY KEY,
-    recipe_name VARCHAR(28) NOT NULL,
-    ingredients VARCHAR(28) NOT NULL,
-    steps VARCHAR(28) NOT NULL,
+    recipe_name VARCHAR(8000) NOT NULL,
+    ingredients VARCHAR(8000) NOT NULL,
+    steps VARCHAR(8000) NOT NULL,
     favorite BOOLEAN NOT NULL,
     rating INTEGER NOT NULL,
     user_id SERIAL,
@@ -23,3 +23,5 @@ CREATE TABLE recipes (
 );
 
 INSERT INTO users (username, pass, hashedpass) VALUES ($1, $2, $3);
+
+ALTER TABLE recipes ALTER COLUMN steps TYPE VARCHAR(8000);
