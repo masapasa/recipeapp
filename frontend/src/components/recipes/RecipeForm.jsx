@@ -18,6 +18,7 @@ const RecipeForm = ({ recipe, onSave, onClose }) => {
     event.preventDefault();
     onSave({ id: recipe ? recipe.id : null, recipe_name, ingredients, steps, rating, favorite });
   };
+  const handleCheckbox = (event) => {setFavorite(event.target.checked);};
 
   return (
     <ModalBody style={{ overflow: "scroll"}}>
@@ -64,8 +65,8 @@ const RecipeForm = ({ recipe, onSave, onClose }) => {
       <br />
         <input
           type="checkbox"
-          value={favorite}
-          onChange={(event) => setFavorite(event.target.value)}
+          checked={favorite}
+          onChange={handleCheckbox}
         />
         <label>Favorite</label>
     </FormGroup>

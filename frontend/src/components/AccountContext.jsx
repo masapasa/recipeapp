@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 export const AccountContext = createContext(); //
 
+const useberoute = 'https://dsanmart-recipeapp2-be-prod.azurewebsites.net'
+//const useberoute = 'http://localhost:4000'
+
 // Function to keep track of whether logged in or not
 const UserContext = ({children}) => {
     const [user, setUser] = useState({ loggedIn: null }); // loggedIn is null by default
@@ -13,8 +16,7 @@ const UserContext = ({children}) => {
 
     // Function below runs when component mounts which will be when the page is refreshed
     useEffect(() => {
-        fetch("https://dsanmart-recipeapp2-be-prod.azurewebsites.net/auth/login", { // fetch the login route
-        //fetch("http://localhost:4000/auth/login", {
+        fetch(useberoute + "/auth/login", { // fetch the login route
             mode: "cors", // cors mode
             credentials: "include", // include cookies
             }).catch(err => {
