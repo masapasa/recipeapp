@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecipeForm from './RecipeForm';
 import "./RecipeForm.css";
-import 'bootstrap/dist/css/bootstrap.min.css'; // import bootstrap styles
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> // import font awesome styles
 import {
     Button,
     Table,
@@ -11,6 +9,8 @@ import {
     ModalHeader,
     ModalBody,
 } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; // import bootstrap styles
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> // import font awesome styles
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
