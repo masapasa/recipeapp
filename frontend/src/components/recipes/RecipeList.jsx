@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RecipeForm from './RecipeForm';
 import "./RecipeForm.css";
+import 'bootstrap/dist/css/bootstrap.min.css'; // import bootstrap styles
 import {
     Button,
     Table,
