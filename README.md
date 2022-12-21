@@ -1,4 +1,4 @@
-# User CRUD Recipe App
+# User Recipes App
 
 ## Description
 
